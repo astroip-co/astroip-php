@@ -37,4 +37,15 @@ class AstroIP
         
         return $body;
     }
+
+    public function lookupASN($asn)
+    {
+        $url = $this->base_url + "/asn/" + $asn + "/?api_key=" + $this->api_key;
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        $body = curl_exec($ch);
+        curl_close($ch);
+        
+        return $body;
+    }
 }
